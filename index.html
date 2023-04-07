@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Ping coming soon page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+  
+</head>
+<body>
+  <div class="wrapper">
+
+    <header class="title-page">
+      <div class="logo">
+        <img src="images/logo.svg" alt="">
+      </div>
+      <h2 class="title">
+        <span id="colored-text">We are launching </span> soon!
+      </h2>
+      <p class="sub-title">
+        Subscribe and get notified
+      </p>
+    </header>
+    <main class="content">
+      <form action="" class="form" onsubmit="receiveInput()">
+        <div class="top">
+          <input type="text" name="email-add" id="email" placeholder="Your email address">
+          <p class="warning">Please provide a valid email address</p>
+        </div>
+        <input type="submit" name="submit" id="btn" value="Notify Me">
+        
+      </form>
+      <div class="image-section">
+        <img src="images/illustration-dashboard.png" alt="">
+      </div>
+    </main>
+    <footer class="footer-section">
+      <div class="social-media">
+        <div class="fb">
+          <!-- <i class="fa-brands fa-facebook"></i> -->
+          <!-- <img class="logo" src="images/facebook-2-logo-svgrepo-com.svg" alt="facebook logo"> -->
+        </div>
+        <div class="twitter">
+          <!-- <img class="logo" src="images/twitter-logo-shape-svgrepo-com.svg" alt="twitter logo"> -->
+        </div>
+        <div class="insta">
+          <!-- <img class="logo" src="images/instagram-2016-logo-svgrepo-com.svg" alt="instagram logo"> -->
+        </div>
+      </div>
+      <div class="copyrights">
+        <p>&copy; Copyright Ping. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- We are launching soon!
+
+  Subscribe and get notified
+
+  Notify Me
+
+  &copy; Copyright Ping. All rights reserved.
+
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </p>
+  </footer> -->
+  <script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(event){
+    event.preventDefault();
+      })
+const warning = document.querySelector('.top');
+let email =document.querySelector('#email');
+email.addEventListener('input', ()=> {
+        warning.children[0].classList.remove('warning-sign');
+        warning.children[1].classList.remove('warning-sign');
+    });
+
+    function receiveInput(){
+        const email1 = document.querySelector('#email').value;
+      if(!isValidEmail(email1)){
+        warning.children[0].classList.add('warning-sign');
+        warning.children[1].classList.add('warning-sign');
+      } else{
+        alert('success');
+      }
+    }
+
+    function isValidEmail(email) {
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    return emailRegex.test(email);
+    
+  }
+  </script>
+</body>
+</html>
